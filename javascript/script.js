@@ -26,7 +26,7 @@ function timerCounter(){
             clearInterval(timer) 
             // alert("Time's Up!")
             bubbleContainer.innerHTML = `
-             <h1 style="color: red">Game Over!</h1>
+             <h1 style="color: red">Time's Up!</h1>
              <br>
              <h2>Your Final Score:</h2>
              <h1>${totalScore}</h1>

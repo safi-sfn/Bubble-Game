@@ -4,6 +4,8 @@ const hittingNum = document.querySelector('#hitNum')
 const score = document.querySelector('#scoreVal')
 
 
+// const resetGame = document.querySelector('.btn')
+
 function makeBubble(){
     let totalBubble= "";
 for(let i=0; i<=104; i++){
@@ -59,3 +61,12 @@ timerCounter();
 makeBubble();
 hitNumber();
 // scoreValue();
+
+
+// resetGame.addEventListener('click',function(){
+//     timerCounter();
+//     makeBubble();
+//     hitNumber();
+
+// })
+

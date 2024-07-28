@@ -8,7 +8,7 @@ const score = document.querySelector('#scoreVal')
 
 function makeBubble(){
     let totalBubble= "";
-for(let i=0; i<=104; i++){
+for(let i=0; i<=103; i++){
     var randomNum = Math.floor(Math.random()*10)
     totalBubble = totalBubble + `<div class="bubble">${randomNum}</div>`
 }

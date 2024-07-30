@@ -3,8 +3,8 @@ const timerCount = document.querySelector('#timer')
 const hittingNum = document.querySelector('#hitNum')
 const score = document.querySelector('#scoreVal')
 
+const resetGame = document.querySelector('.button')
 
-// const resetGame = document.querySelector('.btn')
 
 function makeBubble(){
     let totalBubble= "";
@@ -15,9 +15,9 @@ for(let i=0; i<=103; i++){
 bubbleContainer.innerHTML = totalBubble;
 }
 
+let count = 60;
 function timerCounter(){
-    var count = 60;
-   var timer =  setInterval(function(){
+    var timer =  setInterval(function(){
         if(count>0){
             count--;
             timerCount.textContent = `${count} sec`;
@@ -26,32 +26,43 @@ function timerCounter(){
             clearInterval(timer) 
             // alert("Time's Up!")
             bubbleContainer.innerHTML = `
-             <h1 style="color: red">Time's Up!</h1>
-             <br>
-             <h2>Your Final Score:</h2>
-             <h1>${totalScore}</h1>
+            <h1 style="color: red">Time's Up!</h1>
+            <br>
+            <h2>Your Final Score:</h2>
+            <h1>${totalScore}</h1>
             `
         }
     },1000)
 }
 
+
 function hitNumber(){
-        var rn = Math.floor(Math.random()*10) 
-      hittingNum.textContent = rn;
+    var rn = Math.floor(Math.random()*10) 
+    hittingNum.textContent = rn;
 }
 
 
-var totalScore = 0
-function scoreValue(){
-    totalScore = totalScore+10
+
+let totalScore = 0
+function resetScore() {
+    totalScore = 0; // Reset the score to 0
+    // scoreValue(); // Update the score display
+    updateScore()
+}
+function increaseScoreValue(){
+    totalScore += 10
+    updateScore();
+}
+function updateScore(){
     score.textContent = totalScore
 }
+
 
 bubbleContainer.addEventListener('click',function(event){
     // console.log(event.target.textContent)
     targetVal =  event.target.textContent
     if( targetVal == hittingNum.textContent){
-        scoreValue()
+        increaseScoreValue()
         makeBubble();
         hitNumber();
     }
@@ -63,10 +74,12 @@ hitNumber();
 // scoreValue();
 
 
-// resetGame.addEventListener('click',function(){
-//     timerCounter();
-//     makeBubble();
-//     hitNumber();
+resetGame.addEventListener('click',function(){
+    // resetTimerCounter();
+    resetScore();
+    makeBubble();
+    hitNumber();
+    
 
-// })
+})
 
